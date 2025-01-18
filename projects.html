@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <link rel="stylesheet" href="dropdownstyles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('projectbg.gif');
+      background-size: cover; /* Ensures the image covers the entire viewport */
+      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background-attachment: fixed; /* Makes the background fixed while scrolling */
+      background-position: center; /* Centers the background image */
+    }
+
+    .header {
+      position: relative;
+      color: white;
+      font-size: 2.5em;
+      font-weight: bold;
+      padding: 20px 0;
+      border-bottom: 5px solid #f0c808;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('nyancat.gif');
+      background-size: cover;
+      background-position: center;
+      filter: blur(0px);
+      z-index: 1;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    .header span {
+      z-index: 3;
+    }
+
+    .header .top-right-text {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #d84315, #f0c808);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
+      z-index: 3;
+      animation: float 1s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .project-card {
+      flex: 0 1 calc(33.33% - 20px);
+      background: black;
+      border: 2px solid #d84315;
+      border-radius: 10px;
+      box-shadow: 0 0 8px black, 0 0 12px black;
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      margin-bottom: 10px;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 5px #d84315, 0 0 10px #f0c808;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 10px;
+    }
+
+    .title {
+      font-size: 1.2em;
+      margin-bottom: 8px;
+      color: white;
+      text-shadow: 0 0 0px;
+    }
+
+    .description {
+      font-size: 0.9em;
+      margin-bottom: 8px;
+      color: #ddd;
+    }
+
+    .technologies {
+      font-size: 0.8em;
+      color: #a1a1a1;
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 12px;
+      color: #fff;
+      background: #d84315;
+      border-radius: 5px;
+      box-shadow: 0 0 8px #d84315;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+
+    .project-link:hover {
+      background: black;
+      box-shadow: 0 0 10px black;
+    }
+
+    .more-to-come {
+      flex: 0 1 100%;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+
+    .more-to-come p {
+      font-size: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 10px #00ffff;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+        text-shadow: 0 0 10px #ff00ff, 0 0 8px #00ffff;
+      }
+      to {
+        transform: scale(1.02);
+        text-shadow: 0 0 15px #ff00ff, 0 0 12px #00ffff;
+      }
+    }
+
+    .footer {
+      color: white;
+      padding: 5px;
+      font-size: 1em;
+      text-align: center;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 0 10px black, 0 0 10px black;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    PROJECTS
+    <div class="top-right-text">PROJECTS</div>
+  </div>
+
+  <div class="dropdown-container">
+    <button class="dropdown-button">☰</button>
+    <div class="dropdown-content">
+      <div class="radio-container">
+        <input type="radio" id="option1" name="dropdown" />
+        <label for="option1"><a href="home.html">🏠︎ Home</a></label>
+
+        <input type="radio" id="option2" name="dropdown" />
+        <label for="option2"><a href="about.html">✎ About</a></label>
+
+        <input type="radio" id="option3" name="dropdown" />
+        <label for="option3"><a href="projects.html">🗒 Project</a></label>
+
+        <input type="radio" id="option4" name="dropdown" />
+        <label for="option4"><a href="contact.html">☏ Contact</a></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <div class="project-card">
+      <div class="banner">
+        <img src="p1.gif" alt="Project Banner 1">
+      </div>
+      <div class="content">
+        <h2 class="title">Solar System</h2>
+        <p class="description">The very base of the future projects which will contain many of the upcoming mini-projects. It is Type II on a Kardashev scale.</p>
+        <p class="technologies"><strong>Fabrics of Space, Time, Atoms</strong></p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="banner">
+        <img src="p2.gif" alt="Project Banner 2">
+      </div>
+      <div class="content">
+        <h2 class="title">Energy</h2>
+        <p class="description">A core projects which is required by many other projects. The basic building block of anything which can be constructive or destructive.</p>
+        <p class="technologies"><strong>Dark Matter, Gravity, Force</strong></p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="banner">
+        <img src="p3.gif" alt="Project Banner 3">
+      </div>
+      <div class="content">
+        <h2 class="title">Earth</h2>
+        <p class="description">One of the unique planet which have life on it unlike any other observed planet. Will be destroyed by an upcoming project.</p>
+        <p class="technologies"><strong>Space dust, Cosmic energy, Gravity</strong></p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="banner">
+        <img src="p4.gif" alt="Project Banner 4">
+      </div>
+      <div class="content">
+        <h2 class="title">Humans</h2>
+        <p class="description">Beings capable of harnessing the power of the very cosmos but are held back by their own idiocies and differences.</p>
+        <p class="technologies">Organs, Life, Stupidity<strong></strong></p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="banner">
+        <img src="p5.gif" alt="Project Banner 5">
+      </div>
+      <div class="content">
+        <h2 class="title">Google</h2>
+        <p class="description">A search engine through which one may search anything. This is both good and bad thing, which will have major impact on human lifestyle.</p>
+        <p class="technologies"><strong>Java, Databases, Algorithms</strong></p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="banner">
+        <img src="p6.gif" alt="Project Banner 6">
+      </div>
+      <div class="content">
+        <h2 class="title">Artificial Intelligence</h2>
+        <p class="description">A techonological evolution, hoping to take over humanity and be better than them in every aspect by self adjusting itself to the core.</p>
+        <p class="technologies"><strong>Python, Algorithms, Human Brains</strong></p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="more-to-come">
+      <p>More to come...</p>
+    </div>
+  </div>
+  <footer class="footer">©2025, Aevious. All rights reserved.</footer>
+</body>
+</html>
